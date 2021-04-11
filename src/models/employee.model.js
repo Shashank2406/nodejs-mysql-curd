@@ -2,6 +2,7 @@
 var dbConn = require('./../../config/db.config');
 //Employee object create
 var Employee = function (employee) {
+    console.log(employee)
     // this.first_name = employee.first_name;
     // this.last_name = employee.last_name;
     // this.email = employee.email;
@@ -12,14 +13,14 @@ var Employee = function (employee) {
     // this.status = employee.status ? employee.status : 1;
     // this.created_at = new Date();
     // this.updated_at = new Date();
-    username =  employee.username;
-    firstName = employee.firstName;
-    phoneNumber= employee.phoneNumber;
-    password= employee.password;
-    notes= employee.notes;
-    socialId= employee.socialId;
+    // username =  employee.username;
+    // firstName = employee.firstName;
+    // phoneNumber= employee.phoneNumber;
+    // password= employee.password;
+    // notes= employee.notes;
+    // socialId= employee.socialId;
     createdDate= new Date();
-    updatedDate= employee.updatedDate;
+    // updatedDate= employee.updatedDate;
 };
 Employee.create = function (newEmp, result) {
     dbConn.query("INSERT INTO employees set ?", newEmp, function (err, res) {
