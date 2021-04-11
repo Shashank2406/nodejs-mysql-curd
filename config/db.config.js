@@ -1,12 +1,7 @@
 'use strict';
 const mysql = require('mysql');
 //local mysql db connection
-const dbConn = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'MySql@123',
-//   database : 'node_mysql_crud_db'
-});
+const dbConn = mysql.createConnection('mysql://be479c845b62e4:a4da7bcd@us-cdbr-east-03.cleardb.com/heroku_ea1a446f1252599?reconnect=true');
 dbConn.connect(function(err) {
   if (err) throw err;
   console.log("Database Connected!");
