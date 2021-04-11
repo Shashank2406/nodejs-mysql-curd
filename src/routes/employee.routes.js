@@ -16,24 +16,24 @@ router.route('/users')
   .post(employeeController.create)
   .get(employeeController.findAll);
 
-router.route('/users/update/:id')
-  .put(employeeController.updateUsers)
-  .delete(employeeController.deleteUsers)
-  .get(employeeController.idsearch);
+// router.route('/users/update/:id')
+//   .put(employeeController.updateUsers)
+//   .delete(employeeController.deleteUsers)
+//   .get(employeeController.idsearch);
 
-router.route('/users/search/:reg')
-  .get(employeeController.regexsearch);
+// router.route('/users/search/:reg')
+//   .get(employeeController.regexsearch);
 
-router.route('/authenticate')
-  .post(employeeController.authenticateUser)
+// router.route('/authenticate')
+//   .post(employeeController.authenticateUser)
 
 
-router.route('/notes/:id')
-  .put(employeeController.putNotes)
-  .get(employeeController.getNotes)
+// router.route('/notes/:id')
+//   .put(employeeController.putNotes)
+//   .get(employeeController.getNotes)
 
-router.route('/notes/:id/:noteId')
-  .delete(employeeController.deleteNote)
+// router.route('/notes/:id/:noteId')
+//   .delete(employeeController.deleteNote)
 
 
 
