@@ -2,16 +2,24 @@
 var dbConn = require('./../../config/db.config');
 //Employee object create
 var Employee = function (employee) {
-    this.first_name = employee.first_name;
-    this.last_name = employee.last_name;
-    this.email = employee.email;
-    this.phone = employee.phone;
-    this.organization = employee.organization;
-    this.designation = employee.designation;
-    this.salary = employee.salary;
-    this.status = employee.status ? employee.status : 1;
-    this.created_at = new Date();
-    this.updated_at = new Date();
+    // this.first_name = employee.first_name;
+    // this.last_name = employee.last_name;
+    // this.email = employee.email;
+    // this.phone = employee.phone;
+    // this.organization = employee.organization;
+    // this.designation = employee.designation;
+    // this.salary = employee.salary;
+    // this.status = employee.status ? employee.status : 1;
+    // this.created_at = new Date();
+    // this.updated_at = new Date();
+    username =  employee.username;
+    firstName = employee.firstName;
+    phoneNumber= employee.phoneNumber;
+    password= employee.password;
+    notes= employee.notes;
+    socialId= employee.socialId;
+    createdDate= new Date();
+    updatedDate= employee.updatedDate;
 };
 Employee.create = function (newEmp, result) {
     dbConn.query("INSERT INTO employees set ?", newEmp, function (err, res) {
@@ -27,6 +35,17 @@ Employee.create = function (newEmp, result) {
 };
 Employee.findById = function (id, result) {
     dbConn.query("Select * from employees where id = ? ", id, function (err, res) {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+        }
+        else {
+            result(null, res);
+        }
+    });
+};
+Employee.findByUsername = function (username, result) {
+    dbConn.query("Select * from employees where username = ? ", username, function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(err, null);
