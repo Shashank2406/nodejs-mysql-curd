@@ -7,7 +7,7 @@ dbConn.connect(function(err) {
   if (err) throw err;
   console.log("Database Connected!");
   var sql = "CREATE TABLE customers (id INT AUTO_INCREMENT PRIMARY KEY, first_name VARCHAR(30), last_name VARCHAR(255), email VARCHAR(100), phone VARCHAR(255))";
-  con.query(sql, function (err, result) {
+  dbConn.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table created");
   });
