@@ -36,7 +36,6 @@ exports.findAll = function (req, res) {
     });
 };
 exports.create = function (req, res) {
-    console.log(req)
     const new_employee = new Employee(req.body);
     //handles null error
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {
