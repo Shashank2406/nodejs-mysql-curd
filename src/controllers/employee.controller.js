@@ -1,12 +1,14 @@
 'use strict';
 const Employee = require('../models/employee.model');
 exports.findAll = function (req, res) {
+    console.log(req,res)
     Employee.findAll(function (err, response) {
         // console.log('controller')
         // if (err)
         //     res.send(err);
         // console.log('res', employee);
         // res.send(employee);
+        console.log(err,response)
         if (err) {
             return res.json(req, res, err);
         }
