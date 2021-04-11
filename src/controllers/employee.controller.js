@@ -80,11 +80,11 @@ exports.create = function (req, res) {
         //         })
         //     }
         // });
-        // Employee.create(new_employee, function (err, employee) {
-        //     if (err)
-        //         res.send(err);
-        //     res.json({ error: false, message: "Employee added successfully!", data: employee });
-        // });
+        Employee.create(new_employee, function (err, employee) {
+            if (err)
+                res.send(err);
+            res.json({ error: false, message: "Employee added successfully!", data: employee });
+        });
     }
 };
 exports.findById = function (req, res) {
