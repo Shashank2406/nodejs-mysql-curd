@@ -42,43 +42,44 @@ exports.create = function (req, res) {
         res.status(400).send({ error: true, message: 'Please provide all required field' });
     } else {
         var requestUsername = req.body.username;
-        Employee.findByUsername(requestUsername, function (err, employee) {
-            if (err) {
-                res.json({
-                    status: false,
-                    message: err
-                });
-            }
-            if ((response || []).length === 0) {
-                var user = Employee.create(
-                    req.body.username,
-                    md5(req.body.password),
-                    req.body.firstName,
-                    req.body.phoneNumber,
-                    req.body.socialId || '',
-                    new Date(),
-                    ""
-                );
-                user.save(function (err, response) {
-                    if (err) {
-                        res.json(req, res, err);
-                        return
-                    }
-                    delete response.__v;
-                    res.json({
-                        status: true,
-                        body: { id: response._id }
-                    })
+        console.log(req)
+        // Employee.findByUsername(requestUsername, function (err, employee) {
+        //     if (err) {
+        //         res.json({
+        //             status: false,
+        //             message: err
+        //         });
+        //     }
+        //     if ((response || []).length === 0) {
+        //         var user = Employee.create(
+        //             req.body.username,
+        //             md5(req.body.password),
+        //             req.body.firstName,
+        //             req.body.phoneNumber,
+        //             req.body.socialId || '',
+        //             new Date(),
+        //             ""
+        //         );
+        //         user.save(function (err, response) {
+        //             if (err) {
+        //                 res.json(req, res, err);
+        //                 return
+        //             }
+        //             delete response.__v;
+        //             res.json({
+        //                 status: true,
+        //                 body: { id: response._id }
+        //             })
 
-                });
-            } else {
-                res.status(400);
-                res.json({
-                    status: false,
-                    message: "User Already Exists"
-                })
-            }
-        });
+        //         });
+        //     } else {
+        //         res.status(400);
+        //         res.json({
+        //             status: false,
+        //             message: "User Already Exists"
+        //         })
+        //     }
+        // });
         // Employee.create(new_employee, function (err, employee) {
         //     if (err)
         //         res.send(err);
